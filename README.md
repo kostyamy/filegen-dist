@@ -41,25 +41,25 @@ Explanation of the example:
 Within template file you can use the following built-in variables:
 ```
 	${globalId1:format}  \
-	${globalId2:format}   -> guids assigned at the beginning of the run
+	${globalId2:format}   -> guids assigned at the beginning of the run and stay the same for all records
 	${globalId3:format}  /
 
 	${globalNum1:format} \
-	${globalNum2:format}  -> random integers assigned at the beginning of the run
+	${globalNum2:format}  -> random integers assigned at the beginning of the run and stay the same for all records
 	${globalNum3:format} /
 
 	${index:format}  - 0 based record index
 	${number:format} - 1 based record number
 
 	${id1:format}  \
-	${id2:format}   -> guids generated for each record
+	${id2:format}   -> guids generated for each individual record 
 	${id3:format}  /
-
+	
 	${num1:format} \
-	${num2:format}  -> random integers generated for each record
+	${num2:format}  -> random integers generated for each individual record
 	${num3:format} /
 	
-    ${today:format} - today's date and time
+    	${today:format} - today's date and time
 	${date} - today's date (mm/dd/yyyy)
 	${yyyy} - today's year
 	${mm} - today's month
@@ -67,18 +67,21 @@ Within template file you can use the following built-in variables:
 	${time} - today's time (hh:mm:ss)
 	${ticks:format} - current time ticks
 ```
+
 ## Formats
 ### Guild formats:
-* D - "xxx-xxx-xxxxx---"
-* B - "xxx-xxx-xxxxx---"
-* N - "xxx-xxx-xxxxx---"
-### Numeric formats:
- still working ...
+* D - 00000000-0000-0000-0000-000000000000
+* B - {00000000-0000-0000-0000-000000000000}
+* P - (00000000-0000-0000-0000-000000000000)
+* N - 00000000000000000000000000000000
+* X - {0x00000000,0x0000,0x0000,{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}}
+
+### Numeric formats
+ for details of int to string formats please visit: https://docs.microsoft.com/en-us/dotnet/api/system.int32.tostring?view=netcore-3.1
+
 ### Date formats
-still working ...
+ for details of datetime to string formats please visit: https://docs.microsoft.com/en-us/dotnet/api/system.datetime.tostring?view=netcore-3.1
 
 ## Functions
-Within template file you can use the following built-in functions:
-```
-still working ...
-```
+ - copyFile
+ - appendFile
